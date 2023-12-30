@@ -1,0 +1,44 @@
+import funkcja1
+k= {
+    "nazwa": "Władca pierścieni",
+    "liczbaStron": 300 , 
+    "id" : None
+}
+k2 = {
+    "nazwa": "Hobbit",
+    "liczbaStron": 248 , 
+    "id" : None
+}
+biblioteka = {}
+for x in range(7):
+    k["id"] = x
+    biblioteka[str(x)]=(k.copy())
+for x in range(7,14):
+    k2["id"] = x
+    biblioteka[str(x)]=(k2.copy())
+# ----------------------------------------
+def inf(lst:dict)->None:
+    for k1,dic in lst.items():
+        for v,k in dic.items():
+            print(f"{v} : {k}")
+        print("---"*10)
+def edit(lst:dict,key1,key2,val):
+    lst[key1][key2] = val
+
+# ----------------------------------------
+
+while True:
+    inp = input().lower()
+    if inp == "i":
+        inf(biblioteka)
+    elif inp == "edit":
+        id = (input("podaj id edytowanej książki"))
+        key = (input("podaj edytowaną właściwość"))
+        val = (input("podaj nową wartość edytowanej książki"))
+        edit(biblioteka,id,key,val)
+
+    elif inp == "e":
+        print("Program zakończy działanie")
+        break
+    else:
+        print("Nie ma takiej komendy")
